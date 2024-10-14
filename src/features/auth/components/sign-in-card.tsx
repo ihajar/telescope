@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
+import { loginSchema } from "../schemas";
+
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,25 +20,24 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useLogin } from "../api/use-login";
 
 
-const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1, "Required"),
-});
 
 export const SignInCard = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const { mutate } = useLogin();
+
+  const form = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log({ values });
-  }
+  const onSubmit = (values: z.infer<typeof loginSchema>) => {
+    mutate({ json: values });
+  };
 
   return (
     <Card className="w-full h-full md:w-[487px] border-none shadow-none mb-10">
