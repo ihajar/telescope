@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const routes = [
     {
         label: "Dashboard",
-        href: "",
+        href: "/dashboard",
         icon: LuLayoutDashboard,
         activeIcon: RiDashboardFill,
     },
