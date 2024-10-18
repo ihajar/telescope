@@ -13,6 +13,7 @@ import { useCreateWorkspace } from "../api/use-create-workspace";
 
 import { ImageIcon } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Avatar, AvatarFallback} from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,6 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
 
 
 
@@ -168,7 +168,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                                 variant="muted"
                                 onClick={onCancel}
                                 disabled={isPending}
-                                className="order-2 lg:order-1"
+                                className={cn("order-2 lg:order-1", !onCancel && "invisible")}
                             >
                                 Cancel
                             </Button>
