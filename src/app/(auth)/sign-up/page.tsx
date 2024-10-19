@@ -7,7 +7,7 @@ import { SignUpCard } from "@/features/auth/components/sign-up-card";
 const SignUpPage = async() => {
     const user = await getCurrent();
 
-    if(user) redirect("/dashboard");
+    if(user) redirect("/");
 
     return <SignUpCard />
 }
