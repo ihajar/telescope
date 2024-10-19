@@ -25,7 +25,7 @@ export const WorkspaceSwitcher = () => {
     const { open } = useCreateWorkspaceModal();
 
     const onSelect = (id: string) => {
-        router.push(`/dashboard/workspaces/${id}`);
+        router.push(`/workspaces/${id}`);
     };
 
     return (
