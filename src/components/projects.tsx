@@ -19,7 +19,6 @@ export const Projects = () => {
     const pathname = usePathname();
     const { open } = useCreateProjectModal();
 
-    const projectId = null; // TODO: use projectId hook
     const workspaceId = useWorkspaceId();
     const { data } = useGetProjects({ workspaceId });
     
@@ -30,7 +29,7 @@ export const Projects = () => {
                 <RiAddCircleFill onClick={open} className="size-6 text-white cursor-pointer hover:text-[#8E7BED] transition" />
             </div>
             {data?.documents.map((project) => {
-                const href = `/worksapces/${workspaceId}/projects/${projectId}`;
+                const href = `/workspaces/${workspaceId}/projects/${project.$id}`;
                 const isActive = pathname === href;
 
                 return (

@@ -9,7 +9,7 @@ import { WorkspaceSwitcher } from "./workspace-switcher";
 
 export const Sidebar = () => {
     return (
-        <aside className="h-full bg-[#1E0059] text-white p-4 w-full">
+        <aside className="h-full bg-[#1E0059] text-white p-4 w-full overflow-y-auto">
             <div className="flex items-center justify-center gap-x-2 text-white">
                 <Link href="/">
                     <Image src="/logo-dark.svg" height={50} width={40} alt="Logo" />
