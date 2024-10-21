@@ -90,7 +90,7 @@ const app = new Hono()
                 {
                     userId: user.$id,
                     workspaceId: workspace.$id,
-                    role: MemberRole.ADMIN || MemberRole.PM,
+                    role: MemberRole.ADMIN,
                 },
             );
             
@@ -115,7 +115,7 @@ const app = new Hono()
                 userId: user.$id,
             });
 
-            if(!member || member.role !== MemberRole.ADMIN || member.role !== MemberRole.PM) {
+            if(!member || member.role !== MemberRole.ADMIN) {
                 return c.json({ error: "unauthorized" }, 401);
             }
 
@@ -166,7 +166,7 @@ const app = new Hono()
                 userId: user.$id,
             });
 
-            if(!member || member.role !== MemberRole.ADMIN || member.role !== MemberRole.PM) {
+            if(!member || member.role !== MemberRole.ADMIN) {
                 return c.json({ error: "Unauthorized" }, 401);
             }
 
@@ -195,7 +195,7 @@ const app = new Hono()
                 userId: user.$id,
             });
 
-            if(!member || member.role !== MemberRole.ADMIN || member.role !== MemberRole.PM) {
+            if(!member || member.role !== MemberRole.ADMIN) {
                 return c.json({ error: "Unauthorized" }, 401);
             }
 
