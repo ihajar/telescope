@@ -14,6 +14,7 @@ import { updateProjectSchema } from "../schemas";
 import { useConfirm } from "@/hooks/use-confirm";
 
 import { useUpdateProject } from "../api/use-update-project";
+import { useDeleteProject } from "../api/use-delete-project";
 
 import { toast } from "sonner";
 import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
@@ -50,14 +51,14 @@ interface EditProjectFormProps {
 export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProps) => {
     const router = useRouter();
     const { mutate, isPending } = useUpdateProject();
-    // const { 
-    //     mutate: deleteWorkspace, 
-    //     isPending: isDeletingWorkspace 
-    // } = useDeleteWorkspace();
+    const { 
+        mutate: deleteProject, 
+        isPending: isDeletingProject 
+    } = useDeleteProject();
 
 
     const [DeleteDialog, confirmDelete] = useConfirm(
-        "Delete Workspace",
+        "Delete Project",
         "This action cannot be undone",
         "destructive",
     );
@@ -76,6 +77,14 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
         const ok = await confirmDelete();
 
         if(!ok) return;
+
+        deleteProject({
+            param: { projectId: initialValues.$id },
+        }, {
+            onSuccess: () => {
+                window.location.href = `/workspaces/${initialValues.workspaceId}`;
+            },
+        });
     };
 
     const onSubmit = (values: z.infer<typeof updateProjectSchema>) => {
@@ -109,7 +118,7 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
             {/* Edit form */}
             <Card className="w-full h-full border-none shadow-none">
                 <CardHeader className="flex flex-row items-center gap-x-4 p-7 space-y-0">
-                    <Button size="sm" variant="secondary" onClick={onCancel ? onCancel : () => router.push(`/workspaces/${initialValues.$id}`)}>
+                    <Button size="sm" variant="secondary" onClick={onCancel ? onCancel : () => router.push(`/workspaces/${initialValues.workspaceId}/projects/${initialValues.$id}`)}>
                         <ArrowLeftIcon className="size-4 mr-2" />
                         Back
                     </Button>
