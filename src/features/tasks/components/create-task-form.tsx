@@ -68,7 +68,7 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
         mutate({ json: { ...values, workspaceId } }, {
             onSuccess: () => {
                 form.reset();
-                // TODO: redirect to new task
+                onCancel?.();
             }
         });
     };
