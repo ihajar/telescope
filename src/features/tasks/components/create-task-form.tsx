@@ -69,6 +69,7 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
             onSuccess: () => {
                 form.reset();
                 onCancel?.();
+                // router.refresh();
             }
         });
     };

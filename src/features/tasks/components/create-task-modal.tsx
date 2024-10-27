@@ -15,5 +15,5 @@ export const CreateTaskModal = () => {
         <ResponsiveModal open={isOpen} onOpenChange={setIsOpen}>
             <CreateTaskFromWrapper onCancel={close} />
         </ResponsiveModal>
-    )
-}
+    );
+};
