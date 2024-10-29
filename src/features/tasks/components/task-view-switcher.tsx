@@ -65,7 +65,7 @@ export const TaskViewSwitcher = () => {
     ) => {
         bulkUpdate({
             json: { tasks },
-        })
+        });
     }, [bulkUpdate]);
 
     return (
