@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -54,7 +52,6 @@ interface CreateTaskFormProps {
 
 export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: CreateTaskFormProps) => {
     const workspaceId = useWorkspaceId();
-    const router = useRouter();
     const { mutate, isPending } = useCreateTask();
 
     const form = useForm<z.infer<typeof createTaskSchema>>({
@@ -68,8 +65,7 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
         mutate({ json: { ...values, workspaceId } }, {
             onSuccess: () => {
                 form.reset();
-                onCancel?.();
-                // router.refresh();
+                onCancel?.();;
             }
         });
     };

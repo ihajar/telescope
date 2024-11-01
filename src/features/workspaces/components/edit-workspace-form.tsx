@@ -91,7 +91,6 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
             param: {workspaceId: initialValues.$id},
         }, {
             onSuccess: () => {
-                // router.push("/");
                 window.location.href = "/";
             },
         });
@@ -106,10 +105,6 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
         mutate({ 
             form: finaleValues,
             param: { workspaceId: initialValues.$id }
-        }, {
-            onSuccess: ({ data }) => {
-                form.reset();
-            },
         });
     };
 
