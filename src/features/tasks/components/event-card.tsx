@@ -43,7 +43,7 @@ export const EventCard = ({
     ) => {
         e.stopPropagation();
 
-        router.push(`/workspaces/${workspaceId}/projects/${project.$id}/tasks/${id}`)
+        router.push(`/workspaces/${workspaceId}/tasks/${id}`)
     }
 
     return (
