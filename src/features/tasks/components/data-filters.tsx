@@ -1,5 +1,5 @@
 import { useGetMembers } from "@/features/members/api/use-get-members";
-import { useGetProjects } from "@/features/projects/api/use-get-projetcs";
+import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
 import { FolderIcon, ListChecksIcon, UserIcon } from "lucide-react";

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { useGetProjects } from "@/features/projects/api/use-get-projetcs";
+import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { useCreateProjectModal } from "@/features/projects/hooks/use-create-project-modal";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 

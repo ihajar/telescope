@@ -24,7 +24,7 @@ export const useUpdateProject = () => {
             const response = await client.api.projects[":projectId"]["$patch"]({ form, param });
             
             if(!response.ok) {
-                throw new Error("Failed to update projects");
+                throw new Error("Failed to update project");
             }
 
             return await response.json();
