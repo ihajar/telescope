@@ -16,8 +16,7 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { useUpdateProject } from "../api/use-update-project";
 import { useDeleteProject } from "../api/use-delete-project";
 
-import { toast } from "sonner";
-import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
+import { ArrowLeftIcon, ImageIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { DottedSeparator } from "@/components/dotted-separator";
@@ -40,8 +39,6 @@ import {
 import { Input } from "@/components/ui/input";
 
 
-
-
 interface EditProjectFormProps {
     onCancel?: () => void;
     initialValues: Project;
@@ -52,8 +49,8 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
     const router = useRouter();
     const { mutate, isPending } = useUpdateProject();
     const { 
-        mutate: deleteProject, 
-        isPending: isDeletingProject 
+        mutate: deleteProject,
+        isPending: isDeletingProject
     } = useDeleteProject();
 
 
@@ -258,7 +255,7 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
                             size="sm"
                             variant="destructive"
                             type="button"
-                            disabled={isPending}
+                            disabled={isPending || isDeletingProject}
                             onClick={handleDelete}
                         >
                             Delete Project

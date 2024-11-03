@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 
 import { getCurrent } from "@/features/auth/queries";
 
-import { EditProjectForm } from "@/features/projects/components/edit-project-form";
 import { ProjectIdSettingsClient } from "./client";
 
 

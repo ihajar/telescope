@@ -7,9 +7,7 @@ import { MenuIcon } from "lucide-react";
 import { Sidebar } from "./sidebar";
 
 import { Button } from "./ui/button";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-
-
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 
 

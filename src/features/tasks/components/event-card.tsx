@@ -2,8 +2,10 @@ import { useRouter } from "next/navigation";
 
 import { Project } from "@/features/projects/types";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
-import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
+
+import { Member } from "@/features/members/types";
+import { MemberAvatar } from "@/features/members/components/member-avatar";
 
 import { cn } from "@/lib/utils";
 
@@ -11,10 +13,9 @@ import { TaskStatus } from "../types";
 
 
 
-
 interface EventCardProps {
     title: string;
-    assignee: any;
+    assignee: Member;
     project: Project;
     status: TaskStatus;
     id: string;
